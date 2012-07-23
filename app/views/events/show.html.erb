@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @event.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @event.end %>
+</p>
+
+<p>
+  <b>Allday:</b>
+  <%= @event.allday %>
+</p>
+
+<p>
+  <b>Recurring:</b>
+  <%= @event.recurring %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @event.location %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @event.details %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @event.color %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

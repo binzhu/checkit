@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Pwd:</b>
+  <%= @user.pwd %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Fname:</b>
+  <%= @user.fname %>
+</p>
+
+<p>
+  <b>Lname:</b>
+  <%= @user.lname %>
+</p>
+
+<p>
+  <b>Fb:</b>
+  <%= @user.fb_id %>
+</p>
+
+<p>
+  <b>Reputation:</b>
+  <%= @user.reputation %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @user.status %>
+</p>
+<%=render 'followers'%>
+<%=render 'followees'%>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,25 @@
+<%if !@users.nil?%>
+<% @users.each do |user| %>
+<div class="useritem">
+     <div class="useritemname">
+          <div class="name">
+               <%= user.fname %> 
+               <%= user.lname %>
+          </div>
+          <div class="email">
+               <%= user.email %>
+          </div>
+     </div>
+     
+     <div class="adduserbtn">
+          <%if false %>
+               <%= link_to 'Show', user %> 
+               <%= link_to 'Edit', edit_user_path(user) %> 
+               <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%end%>
+          <%=followlink(user)%>
+          <%=mergelink(user)%>
+     </div>
+</div>
+<% end %>
+<%end%>

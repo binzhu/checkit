@@ -1,0 +1,4 @@
+You are following <%=@user.followees.count%> friends. <br />
+<%@user.followees.each do |followee|%>
+<%=followee.username%><br />
+<%end%>

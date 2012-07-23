@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  start: 2012-07-11 12:48:47
+  end: 2012-07-11 12:48:47
+  allday: 1
+  recurring: 1
+  location: MyString
+  details: MyText
+  color: MyString
+
+two:
+  name: MyString
+  start: 2012-07-11 12:48:47
+  end: 2012-07-11 12:48:47
+  allday: 1
+  recurring: 1
+  location: MyString
+  details: MyText
+  color: MyString

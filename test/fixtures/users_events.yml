@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  event_id: 1
+  confirm_time: 2012-07-11 12:50:23
+
+two:
+  user_id: 1
+  event_id: 1
+  confirm_time: 2012-07-11 12:50:23

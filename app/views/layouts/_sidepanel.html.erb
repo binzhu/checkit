@@ -1,0 +1,17 @@
+  
+    <div id="searchbox">
+        <div id="usersearch">
+          <form>
+            
+            Search Friends:<br />
+            <input type="text" name="userinput" id="userinputid" />
+            <div id="notice"></div>
+            <input type="submit" id="userbtn_submit" value="search" />
+          </form>
+        </div><!--usersearch-->
+        
+        <div id="userlist">
+          <%= render 'users/userlist'%>
+        </div><!--userlist-->
+      
+    </div><!--searchbox-->

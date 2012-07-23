@@ -1,0 +1,427 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+/*.fix{
+    clear: both;
+}
+body{
+    background: yellow;
+}
+header{
+    padding: 10px;
+    font-size: 35px;
+    background: lightblue;
+}
+#loginfm
+{
+   
+    margin: auto;
+    width: 400px;
+}
+#authlink{
+    height: 30px;
+    
+    float: right;
+}
+#container{
+    width: 1000px;
+    margin: auto;
+    background: orange;
+}
+#searchbox{
+    width: 260px;
+    float: left;
+    line-height: 30px;
+}
+#content{
+    background: yellow;
+}
+
+.useritem{
+    
+    padding-left: 10px;
+    border-style: outset;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    height: 40px;
+    
+}
+.useritemname{
+    
+    width: 170px;
+    float: left;
+    line-height: 20px;
+    
+}
+.adduserbtn{
+    width: 60px;
+    line-height: 15px;
+    float: right;
+    
+}
+.name{
+
+}
+.email{
+
+}*/
+
+h1, h2, h3, h4, h5, h6 {
+font-weight: normal;
+}
+
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+background-image: url('/assets/body-bg.jpg');
+background-repeat: repeat-x;
+background-color: #e7ebf2;
+}
+
+.fix {
+clear: both;
+}
+
+#container {
+width: 1120px;
+margin: 0px auto;
+position: relative;
+}
+
+
+header {
+width: 1120px;
+height: 100px;
+}
+
+#logo {
+width: 315px;
+height: 100px;
+float: left;
+}
+
+#user {
+width: 300px;
+height: 100px;
+float: right;
+/*background-color: green;*/
+}
+
+#user-padding {
+padding-top: 25px;
+}
+
+#userpic {
+width: 48px;
+height: 100px;
+float: right;
+}
+
+#username {
+width: 240px;
+height: 100px;
+float: left;
+text-align: right;
+color: white;
+}
+
+#username h3 {
+font-family: Arial;
+font-size: 18px;
+color: white;
+margin-bottom: 8px;
+}
+
+#username p {
+font-family: Arial;
+font-size: 12px;
+color: #afb2b8;
+}
+
+#username p a {
+font-family: Arial;
+font-size: 12px;
+color: #afb2b8;
+text-decoration: none;
+}
+
+#username p a:hover {
+text-decoration: underline;
+}
+#main-container {
+width: 1120px;
+}
+
+#sidebar-left {
+width: 220px;
+/*background-color: aqua;*/
+float: left;
+position: absolute;
+top: 100px;
+left: 0px;
+z-index: 199;
+
+}
+
+
+#sidebar-spacer {
+width: 200px;
+height: 20px;
+/*background-color: blue;*/
+}
+
+#sidebar {
+width: 220px;
+background-color: #eee;
+min-height: 380px;
+box-shadow: 0px 0px 5px 5px rgba(0,0,0,.1);
+}
+
+#sidebar-padding {
+padding: 10px;
+}
+
+.search input {
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+height: 14px;
+width: 130px;
+display: block;
+padding: 6px 27px 6px 12px;
+font-size: 12px;
+line-height: 1;
+}
+
+.friends {
+margin-top: 20px;
+}
+
+
+#main {
+width: 920px;
+float: right;
+background-color: white;
+min-height: 420px;
+position: absolute;
+top: 100px;
+left: 200px;
+z-index: 200;
+box-shadow: 0px 0px 5px 5px rgba(0,0,0,.1);
+}
+
+#main-padding {
+padding: 5px;
+}
+
+#main-header {
+width: 910px;
+height: 50px;
+/*background-color: rgba(0,0,0,.1);*/
+/*border-bottom: 1px dotted #ccc;*/
+}
+
+#main-header-left {
+width: 200px;
+height: 50px;
+/*background-color: orange;*/
+float: left;
+line-height: 50px;
+text-align: left;
+}
+
+#main-header-left p {
+font-family: Arial;
+font-size: 18px;
+color: navy;
+}
+
+#main-header-center {
+width: 510px;
+height: 50px;
+/*background-color: green;*/
+float: left;
+line-height: 50px;
+text-align: center;
+}
+
+#main-header-center p {
+font-family: Arial;
+font-size: 16px;
+color: navy;
+}
+
+#main-header-right {
+width: 200px;
+height: 50px;
+line-height: 50px;
+/*background-color: orange;*/
+float: right;
+text-align: right;
+}
+
+#main-header-right p {
+font-family: Arial;
+font-size: 18px;
+color: navy;
+}
+
+#calendar {
+width: 910px;
+margin: 0px auto;
+
+}
+
+
+#calendar2 {
+width: 910px;
+margin: 0 auto;
+position: relative;
+min-height: 500px;
+}
+
+.box {
+width: 110px;
+height: 150px;
+background-color: rgba(247, 148, 29, .6);
+position: absolute;
+top:0px;
+left: 0px;
+opacity: 0;
+}
+
+.box-padding {
+padding: 5px;
+}
+
+.box-content p {
+font-size: 11px;
+font-family: Arial;
+}
+
+.box-content h3 {
+font-size: 14px;
+font-family: Arial;
+font-weight: bold;
+}
+
+.box:hover {
+cursor: pointer;
+background-color: rgba(247, 148, 29, .7);
+}
+
+#cal-times {
+width: 80px;
+min-height: 400px;
+/*background-color: lightblue;*/
+float: left;
+}
+
+#cal-times table {
+width: 80px;
+}
+
+#cal-times table thead tr th {
+height: 50px;
+width: 80px;
+}
+
+#cal-times table tr td {
+height: 50px;
+width: 80px;
+background-image: url('td_bg.png');
+background-position: top;
+text-align: right;
+font-family: Arial;
+font-size: 13px;
+font-weight: bold;
+/*background-color: teal;*/
+}
+
+.time-padding {
+padding-top: 5px;
+padding-right: 10px;
+}
+
+#cal-times table tr td span {
+/*margin-top: 5px;*/
+/*background-color: orange;*/
+}
+
+#cal-days {
+width: 830px;
+min-height: 400px;
+/*background-color: bisque;*/
+float: right;
+position: relative;
+}
+
+#cal-days table {
+width: 830px;
+}
+
+#cal-days .days-header {
+width: 110px;
+height: 50px;
+/*background-color: pink;*/
+}
+
+#cal-days .days {
+width: 830px;
+position: relative;
+}
+
+#cal-days table thead tr th {
+width: 110px;
+height: 50px;
+/*background-image: url('../images/td_bg.png');*/
+line-height: 50px;
+font-family: Arial;
+font-size: 14px;
+font-weight: bold;
+}
+
+#cal-days table#days {
+}
+
+#cal-days .days table tr td {
+width: 110px;
+height: 50px;
+background-image: url('td_bg.png');
+background-position: top;
+background-color: white;
+}
+
+#previousWeek {
+margin-right: 10px;
+font-size: 16px;
+}
+
+#nextWeek {
+margin-left: 10px;
+font-size: 16px;
+}
+
+

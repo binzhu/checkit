@@ -1,0 +1,27 @@
+<h1>Listing users_events</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Event</th>
+    <th>Confirm time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users_events.each do |users_event| %>
+  <tr>
+    <td><%= users_event.user_id %></td>
+    <td><%= users_event.event_id %></td>
+    <td><%= users_event.confirm_time %></td>
+    <td><%= link_to 'Show', users_event %></td>
+    <td><%= link_to 'Edit', edit_users_event_path(users_event) %></td>
+    <td><%= link_to 'Destroy', users_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Users event', new_users_event_path %>

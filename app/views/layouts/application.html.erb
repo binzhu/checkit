@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkit</title>
+  <%= stylesheet_link_tag    "reset", "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="container">
+	<header>
+		<div id="logo">
+			<a href="#"><%= image_tag "logo.png" %></a>
+		</div>
+		<div id="user">
+		<div id="user-padding">
+			<div id="username">
+				<h3>Good Morning, Blaine</h3>
+				<p><%=authlink %></p>
+			</div>
+			<div id="userpic">
+				<img src="images/profile.png" />
+			</div>
+			<div class="fix"></div>
+		</div>
+		</div>
+	</header>
+  <div id="contentbody">
+    <!--<div id="authlink"><%=authlink %></div>-->
+    
+    <%if params[:controller] == 'events' && params[:action] == 'index' && !session[:user_id].nil?%>
+      <%= render 'layouts/sidepanel'%>
+    <%end%>
+  
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div class="fix"></div>
+  </div><!-- contentbody-->
+</div><!-- container --><!-- -->
+</body>
+</html>
