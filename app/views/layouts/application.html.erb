@@ -2,7 +2,9 @@
 <html>
 <head>
   <title>Checkit</title>
-  <%= stylesheet_link_tag    "reset", "application", :media => "all" %>
+  <%= stylesheet_link_tag    "reset", "style", :media => "all" %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,300italic,600italic,400,300,600,700,800|Open+Sans+Condensed:300,300italic,700"%>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"%>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,33 +12,35 @@
 <div id="container">
 	<header>
 		<div id="logo">
-			<a href="#"><%= image_tag "logo.png" %></a>
+			<%=link_to image_tag("logo3.jpg"), '/' %>
 		</div>
-		<div id="user">
-		<div id="user-padding">
+		  <div id="user">
+		    <div id="user-padding">
 			<div id="username">
-				<h3>Good Morning, Blaine</h3>
-				<p><%=authlink %></p>
+			      <h3>Good Morning</h3>
+			      <p><%=authlink %></p>
 			</div>
 			<div id="userpic">
-				<img src="images/profile.png" />
+			      <%= image_tag "profile.png" %>
 			</div>
 			<div class="fix"></div>
-		</div>
-		</div>
+		    </div>
+		  </div>
 	</header>
-  <div id="contentbody">
-    <!--<div id="authlink"><%=authlink %></div>-->
-    
-    <%if params[:controller] == 'events' && params[:action] == 'index' && !session[:user_id].nil?%>
-      <%= render 'layouts/sidepanel'%>
-    <%end%>
-  
-    <div id="content">
+  <div id="main-container">
+		<div id="sidebar-left">
+			<div id="sidebar">
+			<div id="sidebar-padding">
+	    <%=sidepanel%>
+				<span class="percent"></span>
+			</div><!-- sidebar padding-->
+			</div><!-- sidebar end-->
+		</div><!-- sidebar-left end-->
       <%= yield %>
-    </div>
-    <div class="fix"></div>
-  </div><!-- contentbody-->
-</div><!-- container --><!-- -->
+		
+  <div class="fix"></div>
+  </div><!--main container end -->
+	
+</div><!-- container end -->
 </body>
 </html>

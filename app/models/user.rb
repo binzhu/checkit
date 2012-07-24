@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   
+  def fullname
+    fname + " " + lname
+  end
   
   # one direction friendship
   def followers

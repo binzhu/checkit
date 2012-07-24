@@ -49,4 +49,10 @@ module ApplicationHelper
       login + " | " + register
     end
   end
+  
+  def sidepanel 
+    if params[:controller] == 'events' && params[:action] == 'index' && !session[:user_id].nil?
+       render 'layouts/sidepanel'
+    end
+  end
 end

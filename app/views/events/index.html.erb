@@ -1,37 +1,62 @@
-<h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Allday</th>
-    <th>Recurring</th>
-    <th>Location</th>
-    <th>Details</th>
-    <th>Color</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.start %></td>
-    <td><%= event.end %></td>
-    <td><%= event.allday %></td>
-    <td><%= event.recurring %></td>
-    <td><%= event.location %></td>
-    <td><%= event.details %></td>
-    <td><%= event.color %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>
+<section id="main">
+			<div id="main-padding">
+				<div id="main-header">
+					<div id="main-header-left">
+						<p>Create Event</p>
+					</div>
+					<div id="main-header-center">
+						<p><a href="#" id="previousA"><span id="previousWeek"></span><span class="weekBeginMonth"></span></a>  - <a href="#" id="nextA"><span class="weekEndMonth"></span><span id="nextWeek"></span></a></p>
+					</div>
+					<div id="main-header-right">
+						<p>Icons</p>
+					</div>
+				</div><!-- main header end -->
+				<!--<div id="calendar"></div>-->
+				<div id="calendar-scroll-left">
+					<div class="scroll-padding">
+					<div class="slide-box"></div>
+					</div>
+				</div>
+				<div id="calendar2">
+					<div id="cal-times">
+						<div id="cal-times-spacer"></div>
+						<div class="cal-times-crop">
+						<table id="times" cellpadding="0" cellspacing="0" border="0">
+						</table>
+						</div>
+					</div><!-- cal times end -->
+					
+					<div id="cal-days">
+						<div class="days-header">
+						<table id="days-header">
+							<thead>
+								<tr>
+								</tr>
+							</thead>
+						</table>
+						</div><!-- days header end -->
+						<div class="days-crop">
+						<div class="days">
+						<table>
+						<!--<div class="box">
+							<div class="box-padding">
+								<div class="box-content">
+								<p><span class="eventStartTime"></span>-<span class="eventEndTime"></span></p>
+								<h3></h3>
+								</div>
+							</div>
+						</div>-->
+						<!-- buildrows(); -->	
+						</table>
+						</div>
+						</div><!-- days crop end -->
+				</div>
+			</div><!-- calendar 2 end -->
+			<div id="calendar-scroll-right">
+				<div class="scroll-padding">
+				<div class="slide-box"></div>
+				</div>
+			</div>
+			<div class="fix"></div>
+			</div><!--main padding end -->
+		</section>

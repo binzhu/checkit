@@ -1,17 +1,15 @@
   
-    <div id="searchbox">
-        <div id="usersearch">
+    <div class="search">
           <form>
-            
-            Search Friends:<br />
-            <input type="text" name="userinput" id="userinputid" />
+            <input type="text" name="userinput" id="userinputid" value="Find Friends" />
             <div id="notice"></div>
-            <input type="submit" id="userbtn_submit" value="search" />
+            <input type="submit" id="userbtn_submit" value="search"/>
           </form>
-        </div><!--usersearch-->
-        
-        <div id="userlist">
-          <%= render 'users/userlist'%>
-        </div><!--userlist-->
-      
-    </div><!--searchbox-->
+    </div><!--search end-->
+    <div class="friends">
+    <h2><span class="ui-icon"></span><a href="#" id="friends-btn">Friends</a></h2>
+      <%= render 'users/userlist'%>
+    </div><!-- friends end --> 
+    <div class="groups">
+	<h2><span class="ui-icon"></span><a href="#" id="groups-btn">Groups</a></h2>
+    </div>
