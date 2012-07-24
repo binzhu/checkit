@@ -22,15 +22,15 @@ ActiveRecord::Schema.define(:version => 20120712172546) do
     t.string   "location"
     t.text     "details"
     t.string   "color"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "friends", :force => true do |t|
     t.integer  "followee_id"
     t.integer  "follower_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20120712172546) do
     t.string   "fb_id"
     t.string   "reputation"
     t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "seed"
   end
 
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(:version => 20120712172546) do
     t.integer  "user_id"
     t.integer  "event_id"
     t.datetime "confirm_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

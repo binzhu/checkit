@@ -150,7 +150,31 @@ background-repeat: repeat-x;
 .fix {
 clear: both;
 }
+/*added by Bin for login page*/
+#loginfm{
+	font-family: 'Open Sans', sans-serif;
+	width: 250px;
+	border: dashed;
+	padding: 10px;
+	margin-left: 50px;
+}
+#loginfm input .userinput{
+	width: 200px;
+}
+#loginname{
+	float: right;
+}
+#loginpw{
+	float: right;
+}
+#loginfm .submit{
+	float: left;
+	margin-top: 10px;
+	width: 90px;
+}
 
+
+/*login page end*/
 #container {
 width: 1120px;
 margin: 0px auto;
@@ -191,7 +215,7 @@ float: right;
 height: 45px;
 }
 
-#username {
+#usrname {
 width: 340px;
 height: 45px;
 float: left;
@@ -199,7 +223,7 @@ text-align: right;
 color: white;
 }
 
-#username h3 {
+#usrname h3 {
 font-family: 'Open Sans', sans-serif;
 font-size: 16px;
 color: white;
@@ -208,20 +232,20 @@ margin-bottom: 3px;
 /*margin-bottom: 8px;*/
 }
 
-#username p {
+#usrname p {
 font-family: 'Open Sans', sans-serif;
 font-size: 11px;
 color: #afb2b8;
 }
 
-#username p a {
+#usrname p a {
 font-family: 'Open Sans', sans-serif;
 font-size: 12px;
 color: #afb2b8;
 text-decoration: none;
 }
 
-#username p a:hover {
+#usrname p a:hover {
 text-decoration: underline;
 }
 
