@@ -16,7 +16,6 @@
 
 $(document).ready(function(){
    //alert("application js called") ;
-   
    $('#userinputid').click(function(){
       if ($(this).focus()){
          //alert('focused');
