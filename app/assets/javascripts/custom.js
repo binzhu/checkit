@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-	alert("custom!");
+	//alert("custom!");
 
 
 

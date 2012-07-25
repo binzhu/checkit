@@ -15,7 +15,7 @@
 
 
 $(document).ready(function(){
-   alert("application js called") ;
+   //alert("application js called") ;
    
    $('#userbtn_submit').click(function(){
     //alert("clicked!");

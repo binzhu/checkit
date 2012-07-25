@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-	alert('events');
+	//alert('events');
 	
 	// add table rows in main calendar
 	var row = "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
