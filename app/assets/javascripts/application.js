@@ -11,18 +11,26 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= #require jquery
-//= #require jquery_ujs  
+//= require jquery_ujs  
 
 
 $(document).ready(function(){
    //alert("application js called") ;
    
+   $('#userinputid').click(function(){
+      if ($(this).focus()){
+         //alert('focused');
+         $(this).val(""); // clear input field hint when user click on it
+      }
+   });
+   
    $('#userbtn_submit').click(function(){
-    //alert("clicked!");
+    //alert("searched!");
     var input = $('#userinputid').val();
     if (input.length == 0){
-    alert('Please put in friend information');
-    $('#notice').html("please put in friend information")
+    //alert('Please put in friend information');
+    $('#notice').html("please put in some friend information")
+    setTimeout(function(){ $('#notice').empty();},3000);
     return false;//prevent button to make post request
     }
     

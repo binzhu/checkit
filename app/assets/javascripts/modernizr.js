@@ -430,7 +430,7 @@ window.Modernizr = (function( window, document, undefined ) {
         try {
             var canvas = document.createElement('canvas'),
                 ret;
-            ret = !!(window.WebGLRenderingContext && (canvas.getContext('experimental-webgl') || canvas.getContext('webgl')));
+            //ret = !!(window.WebGLRenderingContext && (canvas.getContext('experimental-webgl') || canvas.getContext('webgl')));
             canvas = undefined;
         } catch (e){
             ret = false;
