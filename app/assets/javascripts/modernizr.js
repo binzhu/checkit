@@ -23,7 +23,7 @@
  */
 
 window.Modernizr = (function( window, document, undefined ) {
-
+//alert('modernizr');
     var version = '2.5.3',
 
     Modernizr = {},

@@ -1,8 +1,10 @@
 jQuery(document).ready(function() {
-	//alert("loaded!");
+	alert("custom!");
+
+
+
 	
-	
-	
+// start of custom.js	
 	var boxEndHeight = jQuery(".box").height();
 	
 	
@@ -41,6 +43,7 @@ jQuery(document).ready(function() {
 		//alert(theBoxHeight);
 		updateEvent();
 	}
+
 	
 	var initStartTime;
 	var initPosY;
@@ -233,7 +236,8 @@ jQuery(document).ready(function() {
 	
 	jQuery("#times tr:odd").find("td").css("background-color", "#f5fcff");
 	
-	
+// end of custom.js
+
  
 	
 

@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-	//alert("events");
+	alert('events');
 	
 	// add table rows in main calendar
 	var row = "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
@@ -38,9 +38,24 @@ jQuery(document).ready(function() {
 	
 	/* --------------- EVENTS ARRAY ------------- */
 	
+	
+	
+	var ajaxEvent = function(){
+           $.ajax({
+             type: "GET",
+	     url: 'http://localhost:3000/meetings/getevents.json',
+             dataType: "json",
+		success: function(data){
+		var items = [];
+			$.each(data, function(key, val) {
+			   items.push(val);
+			 });// events push end
+                 }// success callback function end
+             }); //actuall ajax call end
+        }//ajaxEvent function end
+	
+	
 	var eventArray = new Array();
-	
-	
 	// Create Rails loop that makes eventArray "push" items
 	eventArray.push({eventTitle: "Practice", eventDescription: "Description goes here", eventStartTimeYear: 2012, eventStartTimeMonth: 6, eventStartTimeDay: 17, eventStartTimeHour: 12, eventStartTimeMinutes: 30, eventEndTimeYear: 2012, eventEndTimeMonth: 7, eventEndTimeDay: 17, eventEndTimeHour: 15, eventEndTimeMinutes: 30});
 	

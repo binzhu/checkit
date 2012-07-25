@@ -13,12 +13,7 @@ class EventsController < ApplicationController
     end
   end
   
-  def merge
-    @user = 'i'
-    respond_to do |format|
-      format.js  
-    end
-  end
+
     
   # GET /events
   # GET /events.json
