@@ -1,17 +1,19 @@
 <%if !@users.nil?%>
-<% @users.each do |user| %>
-<li>
-     <div class="profile-pic">
-          <%=image_tag "profile-pic.jpg"%>
-     </div>
-     <div class="profile-name">
-          <h3><%=link_to user.fullname %></h3>
-          <p><%= user.email %></p>
-     </div>
-     <div class="profile-follow"></div>
-     <div class="fix"></div><!-- prevent sliding -->
-</li>
-<% end %>
+<ul style="display: block;" id="friends-list">
+     <% @users.each do |user| %>
+     <li>
+          <div class="profile-pic">
+               <%=image_tag "profile-pic.jpg"%>
+          </div>
+          <div class="profile-name">
+               <h3><%=link_to user.fullname %></h3>
+               <p><%= user.email %></p>
+          </div>
+          <div class="profile-follow"></div>
+          <div class="fix"></div><!-- prevent sliding -->
+     </li>
+     <% end %>
+</ul>
 <%end%>
          
      <!--
