@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-	//alert('events');
+	alert('events');
 	
 	// add table rows in main calendar
 	var row = "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
@@ -71,8 +71,9 @@ jQuery(document).ready(function() {
 	
 	var box;
 	for (var e = 0; e < eventArrayTotalItems; e++) {
-		box = "<div class='box'><div class='box-padding'><div class='box-content'><p><span class='eventStartTime'>" + eventArray[e].eventStartTimeHour + ":" + eventArray[e].eventStartTimeMinutes + "</span>-<span class='eventEndTime'>" + eventArray[e].eventEndTimeHour + ":" + eventArray[e].eventEndTimeMinutes + "</span></p><h3>" + eventArray[e].eventTitle + "</h3><h3>" + eventArray[e].eventStartTimeMonth + " " + eventArray[e].eventStartTimeDay + "," + eventArray[e].eventStartTimeYear + "</h3></div></div></div>";
+		box = "<div class='box' style='position:absolute'><div class='box-padding'><div class='box-content'><p><span class='eventStartTime'>" + eventArray[e].eventStartTimeHour + ":" + eventArray[e].eventStartTimeMinutes + "</span>-<span class='eventEndTime'>" + eventArray[e].eventEndTimeHour + ":" + eventArray[e].eventEndTimeMinutes + "</span></p><h3>" + eventArray[e].eventTitle + "</h3><h3>" + eventArray[e].eventStartTimeMonth + " " + eventArray[e].eventStartTimeDay + "," + eventArray[e].eventStartTimeYear + "</h3></div></div></div>";
 		jQuery(".days table").append(box);
+		//alert("boxes");
 	}
 	
 	var initStartTime, initStartMinutes, initEndTime, initEndMinutes, initPosY, initPosX, initEndTime, initDay, initDayNum;
@@ -107,25 +108,25 @@ jQuery(document).ready(function() {
 		var testSaturday = forSaturday.test(utcString);
 		
 		if (testSunday == true) {
-	 		// alert("Sunday!");
+	 		alert("Sunday!");
 	 		initDayNum = 0;
 		} else if (testMonday == true)  {
-			// alert("Monday");
+			alert("Monday");
 			initDayNum = 1;
 		} else if (testTuesday == true)  {
-			// alert("Tuesday");
+			alert("Tuesday");
 			initDayNum = 2;
 		} else if (testWednesday == true)  {
-			// alert("Wednesday");
+			alert("Wednesday");
 			initDayNum = 3;
 		} else if (testThursday == true)  {
-			// alert("Thursday");
+			alert("Thursday");
 			initDayNum = 4;
 		} else if (testFriday == true)  {
-			// alert("Friday");
+			alert("Friday");
 			initDayNum = 5;
 		} else if (testSaturday == true)  {
-			// alert("Saturday");
+			alert("Saturday");
 			initDayNum = 6;
 		} else {
 			alert("nothing");
