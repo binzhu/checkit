@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<%= f.hidden_field :user_id, :value => session[:user_id]%>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -23,25 +23,23 @@
     <%= f.label :end %><br />
     <%= f.datetime_select :end %>
   </div>
-  <div class="field">
-    <%= f.label :allday %><br />
-    <%= f.number_field :allday %>
-  </div>
-  <div class="field">
-    <%= f.label :recurring %><br />
-    <%= f.number_field :recurring %>
-  </div>
+  
+    <%= f.label :allday %>
+    <%= f.check_box :allday %>
+    <%= f.label :recurring %>
+    <%= f.check_box :recurring %>
+  
   <div class="field">
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
   <div class="field">
     <%= f.label :details %><br />
-    <%= f.text_area :details %>
+    <%= f.text_area :details, :size=> "50x5" %>
   </div>
   <div class="field">
     <%= f.label :color %><br />
-    <%= f.text_field :color %>
+    <%= f.select :color, [["yellow","1"],["red","2"],["blue","3"],["green","4"]] %>
   </div>
   <div class="actions">
     <%= f.submit %>

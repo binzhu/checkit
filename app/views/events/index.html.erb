@@ -59,4 +59,13 @@
 			</div>
 			<div class="fix"></div>
 			</div><!--main padding end -->
-		</section>
+</section>
+<section id="events">
+  <% @events.each do |e|%>
+    <%=link_to e.name, e%>
+    <%=e.start%>
+    <%= link_to 'Edit', edit_event_path(e) %>
+    <%= link_to 'X', e, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br />
+  <%end%>
+</section>

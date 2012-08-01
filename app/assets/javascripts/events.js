@@ -1,5 +1,8 @@
 jQuery(document).ready(function() {
 	//alert('events');
+	var calpage = $('table#times')
+	if (calpage.length > 0 ){
+		//alert("calendar!");
 	
 	// add table rows in main calendar
 	var row = "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
@@ -40,35 +43,65 @@ jQuery(document).ready(function() {
 	
 	
 	
-	var ajaxEvent = function(){
-           $.ajax({
-             type: "GET",
-	     url: 'http://localhost:3000/meetings/getevents.json',
-             dataType: "json",
-		success: function(data){
-		var items = [];
-			$.each(data, function(key, val) {
-			   items.push(val);
-			 });// events push end
-                 }// success callback function end
-             }); //actuall ajax call end
-        }//ajaxEvent function end
+
 	
 	
 	var eventArray = new Array();
 	// Create Rails loop that makes eventArray "push" items
-	eventArray.push({eventTitle: "Practice", eventDescription: "Description goes here", eventStartTimeYear: 2012, eventStartTimeMonth: 6, eventStartTimeDay: 17, eventStartTimeHour: 12, eventStartTimeMinutes: 30, eventEndTimeYear: 2012, eventEndTimeMonth: 7, eventEndTimeDay: 17, eventEndTimeHour: 15, eventEndTimeMinutes: 30});
+	//eventArray.push({eventTitle: "Practice", eventDescription: "Description goes here", eventStartTimeYear: 2012, eventStartTimeMonth: 6, eventStartTimeDay: 17, eventStartTimeHour: 12, eventStartTimeMinutes: 30, eventEndTimeYear: 2012, eventEndTimeMonth: 7, eventEndTimeDay: 17, eventEndTimeHour: 15, eventEndTimeMinutes: 30});
 	
-	eventArray.push({eventTitle: "Practice 2", eventDescription: "Description goes here", eventStartTimeYear: 2012, eventStartTimeMonth: 6, eventStartTimeDay: 19, eventStartTimeHour: 13, eventStartTimeMinutes: 30, eventEndTimeYear: 2012, eventEndTimeMonth: 7, eventEndTimeDay: 19, eventEndTimeHour: 15, eventEndTimeMinutes: 30});
+	//eventArray.push({eventTitle: "Practice 2", eventDescription: "Description goes here", eventStartTimeYear: 2012, eventStartTimeMonth: 6, eventStartTimeDay: 19, eventStartTimeHour: 13, eventStartTimeMinutes: 30, eventEndTimeYear: 2012, eventEndTimeMonth: 7, eventEndTimeDay: 19, eventEndTimeHour: 15, eventEndTimeMinutes: 30});
 	
-	eventArray.push({eventTitle: "Practice 3", eventDescription: "Description goes here", eventStartTimeYear: 2012, eventStartTimeMonth: 6, eventStartTimeDay: 20, eventStartTimeHour: 9, eventStartTimeMinutes: 30, eventEndTimeYear: 2012, eventEndTimeMonth: 7, eventEndTimeDay: 20, eventEndTimeHour: 13, eventEndTimeMinutes: 30});
+	//eventArray.push({eventTitle: "Practice 3", eventDescription: "Description goes here", eventStartTimeYear: 2012, eventStartTimeMonth: 6, eventStartTimeDay: 20, eventStartTimeHour: 9, eventStartTimeMinutes: 30, eventEndTimeYear: 2012, eventEndTimeMonth: 7, eventEndTimeDay: 20, eventEndTimeHour: 13, eventEndTimeMinutes: 30});
 	
-
+   
+   //alert(eventArray.length);
+   
+         $.ajax({
+             type: "GET",
+             //url: 'http://serverurl/events/getmeetings.json',
+	     url: 'http://checkitit.herokuapp.com/events/getmeetings.json',
+	     //url: 'http://localhost:3000/events/getmeetings.json',
+             dataType: "json",
+               success: function(data){
+		//alert("ajaxed!");
+                var items = []
+                     $.each(data, function(key, val) {
+                     items.push(val);
+		     var start_year = val.start.substr(0,4);
+		     var start_month = val.start.substr(5,2);
+		     var start_day = val.start.substr(8,2);
+		     var start_timehour = val.start.substr(11,2);
+		     var start_timemins = val.start.substr(14,2);
+		     var end_timehour = val.end.substr(11,2);
+		     var end_timemins = val.end.substr(14,2);
+		     eventArray.push({eventTitle:  val.name,
+				     eventDescription: val.start,
+				     eventStartTimeYear: start_year,
+				     eventStartTimeMonth: start_month,
+				     eventStartTimeDay: start_day,
+				     eventStartTimeHour: parseInt(start_timehour),
+				     eventStartTimeMinutes: parseInt(start_timemins),
+				     eventEndTimeYear: start_year,
+				     eventEndTimeMonth: start_month,
+				     eventEndTimeDay: start_day,
+				     eventEndTimeHour: parseInt(end_timehour),
+				     eventEndTimeMinutes: (end_timemins)});
+		     //alert("event pushed!");
+                    });//each data push end
+		//alert(items[0].name);
+		
+                 }// success end
+             }); //ajax end
+	 
+	 
+	alert(""); 
 	// count items in array to limit the loop below	
-	var eventArrayTotalItems = eventArray.length;
+	
+	//alert(eventArrayTotalItems);
 	
 	/* --------------- BUILD BOXES AND LOOP THROUGH EVENT ARRAY ------------- */
-	
+	var eventArrayTotalItems = eventArray.length;
 	var box;
 	for (var e = 0; e < eventArrayTotalItems; e++) {
 		box = "<div class='box' style='position:absolute'><div class='box-padding'><div class='box-content'><p><span class='eventStartTime'>" + eventArray[e].eventStartTimeHour + ":" + eventArray[e].eventStartTimeMinutes + "</span>-<span class='eventEndTime'>" + eventArray[e].eventEndTimeHour + ":" + eventArray[e].eventEndTimeMinutes + "</span></p><h3>" + eventArray[e].eventTitle + "</h3><h3>" + eventArray[e].eventStartTimeMonth + " " + eventArray[e].eventStartTimeDay + "," + eventArray[e].eventStartTimeYear + "</h3></div></div></div>";
@@ -293,5 +326,5 @@ jQuery(document).ready(function() {
  		jQuery(this).parents("table").find("tr").find("td:eq(" + col + ")").css("background-color", "white");
  		jQuery(".days table").find("tr:odd").find("td").css("background-color", "#c1edff");
  	});
-	
+	}//check if calendar page is loaded
 }); // ready method end

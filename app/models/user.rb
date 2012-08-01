@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :fb_id, :fname, :lname, :pwd, :reputation, :status, :username, :password, :password_confirmation
+  has_many :events
+  
   validates_uniqueness_of :username, :email
   validates_confirmation_of :password
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  
+  
   
   def fullname
     fname + " " + lname

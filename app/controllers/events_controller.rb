@@ -1,5 +1,21 @@
 class EventsController < ApplicationController
   
+  def getusers
+    if !session[:user_id].nil?
+      
+    end
+  end
+  
+  def getmeetings
+    if !session[:user_id].nil?
+      @events = Event.find_all_by_user_id(session[:user_id])
+      
+    end
+    respond_to do |format|
+      format.json {render json: @events}
+    end
+  end
+  
   def checkit
     if !params[:merger_id].nil?
       user = User.find(params[:merger_id])
@@ -18,8 +34,10 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.find_all_by_user_id(session[:user_id])
     #search bar condition to search friends
+    
+
     if !params[:userinput].nil? #&& params[:userinput].length != 0
       searchkey = params[:userinput]
     @users = User.find(:all, :conditions=> ["fname like ? or lname like ? or fname||' '||lname like ? or email like ?","%"+  searchkey + "%","%"+  searchkey + "%","%"+  searchkey + "%","%"+  searchkey + "%"])

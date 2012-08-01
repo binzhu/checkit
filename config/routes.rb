@@ -1,10 +1,9 @@
 Checkit::Application.routes.draw do
-
+  get "events/getmeetings"
   get "friends/follow"
   match "/admin" => "admin#login"
   get "admin/login"
   post "admin/login"
-
   get "admin/logout"
 
   resources :users_events
@@ -12,7 +11,7 @@ Checkit::Application.routes.draw do
   #could be removed after moved to ajax search
   get "events/checkit"
   get "events/merge"
-  match "/events" => redirect("/")
+  #match "/events" => redirect("/")
   resources :friends
 
   resources :events
