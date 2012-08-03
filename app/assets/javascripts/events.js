@@ -60,8 +60,8 @@ jQuery(document).ready(function() {
          $.ajax({
              type: "GET",
              //url: 'http://serverurl/events/getmeetings.json',
-	     url: 'http://checkitit.herokuapp.com/events/getmeetings.json',
-	     //url: 'http://localhost:3000/events/getmeetings.json',
+	     //rl: 'http://checkitit.herokuapp.com/events/getmeetings.json',
+	     url: 'http://localhost:3000/events/getmeetings.json',
              dataType: "json",
                success: function(data){
 		//alert("ajaxed!");
@@ -90,16 +90,6 @@ jQuery(document).ready(function() {
 		     //alert("event pushed!");
                     });//each data push end
 		//alert(items[0].name);
-		
-                 }// success end
-             }); //ajax end
-	 
-	 
-	alert(""); 
-	// count items in array to limit the loop below	
-	
-	//alert(eventArrayTotalItems);
-	
 	/* --------------- BUILD BOXES AND LOOP THROUGH EVENT ARRAY ------------- */
 	var eventArrayTotalItems = eventArray.length;
 	var box;
@@ -234,10 +224,20 @@ jQuery(document).ready(function() {
 			
 			var boxDifference = boxTop - daysCropTop;
 			
+			//alert(slideBoxTop);
+			var slideBoxTopOffSet = jQuery(".slide-box").offset();
+			var slideBoxTopOffSetTop = slideBoxTopOffSet.top;
+			
 			if (boxDifference <= 25 ) {
+				
 				jQuery(".days").css("margin-top", "+=5px");
-				jQuery("#times").css("margin-top", "+=5px");  
-				jQuery(".slide-box").css("top", "-=15px");
+				jQuery("#times").css("margin-top", "+=5px"); 
+				if (slideBoxTopOffSetTop <= 160) {
+					alert("whoa!");
+					jQuery(".slide-box").css("top", "0px");
+				} else {
+					jQuery(".slide-box").css("top", "-=1px");
+				}
 			}
 	});
 	
@@ -326,5 +326,17 @@ jQuery(document).ready(function() {
  		jQuery(this).parents("table").find("tr").find("td:eq(" + col + ")").css("background-color", "white");
  		jQuery(".days table").find("tr:odd").find("td").css("background-color", "#c1edff");
  	});
+                 }// success end
+             }); //ajax end
+	 
+	 
+	//alert("event push"); 
+	// count items in array to limit the loop below	
+	
+	//alert(eventArrayTotalItems);
+	
+
+	
+	
 	}//check if calendar page is loaded
 }); // ready method end

@@ -1,5 +1,23 @@
 jQuery(document).ready(function() {
-	//alert("calendar!");
+
+	var windowH = jQuery(window).height();
+    var windowW = jQuery(window).width();
+    jQuery("#shadow").css("height", windowH);
+    jQuery("#shadow").css("width", windowW);
+    var createEventHeight = jQuery("#createEvent").height();
+    var createEventMarginTop = (windowH - createEventHeight)/2;
+    jQuery("#createEvent").css("margin-top", createEventMarginTop);
+    
+    jQuery("#createEventClose").click(function() {
+    	jQuery(this).parents("#createEvent").hide();
+    	jQuery(this).parents("#shadow").hide();
+    });
+
+	var calCropOffset = jQuery(".days").offset();
+	calOffSetTop = calCropOffset.top;
+	calOffSetLeft = calCropOffset.left;
+
+	//alert("loaded!");
 	var monthNameList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	
 	var monthDayTotals = ["31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"];
@@ -258,7 +276,7 @@ jQuery(document).ready(function() {
 		var calPercent = ((1125 * slidePercent) / 100) * -1;
 		jQuery(".days").css("margin-top", calPercent);
 		jQuery("#times").css("margin-top", calPercent);  
-		jQuery(".percent").text(slidePercent);
+		//jQuery(".percent").text(slidePercent);
 	});
 	
 	
@@ -272,5 +290,82 @@ jQuery(document).ready(function() {
 		
 	}
  	setSlide();
+ 	
+ 	
+ 	var flag = false;
+	jQuery(".days table").mousedown(function(event){
+   		flag = true;
+   		var target = jQuery(event.target);
+   		
+   		if (target.hasClass("box")) {
+   			// if you clicked on an existing box, don't do anything
+   			jQuery(".boxStatus").text("mouse clicked on a box");
+   			//alert("yes");
+   			flag = false;
+   		} else {
+   			// if you DIDN'T click on an existing box, create new event
+   			jQuery(".boxStatus").text("not on a box");
+   			
+   			/*var currentCalMarginTop = parseInt(jQuery(".days").css("margin-top"));
+   			var currentCalMarginLeft = parseInt(jQuery(".days").css("margin-left"));
+   			
+   			var clickY = (event.pageY - calOffSetTop) - currentCalMarginTop;
+   			var clickX = (event.pageX - calOffSetLeft) - currentCalMarginLeft;
+   			
+   			// round down to nearest calendar increment
+   			var clickYround = Math.round(clickY / 25) * 25;
+   			var clickXround = Math.floor(clickX / 120) * 120;
+   			
+   			var newEvent = jQuery("<div class='box' style='position:absolute; opacity:1;'></div>");
+   			
+   			jQuery(".days table").append(newEvent);
+   			
+   			jQuery(newEvent).css("top", clickYround);
+   			jQuery(newEvent).css("left", clickXround);
+   			
+   			jQuery(".days table").bind("mousemove.newevent", function(event) {
+   				jQuery(".mouseStatus").text("mousemoving");
+   			}).mouseup(function(event) {
+                jQuery(target).unbind("mousemove.newevent");
+        		alert("new event");
+    			jQuery(".mouseStatus").text("mouseup");
+    			flag = false;
+   			});*/
+   		} // end of click conditional
+  
+   		// trace the event
+   		jQuery(".mouseStatus").text("mousedown");
+   		
+   		
+   		//jQuery(".mouseStatus").text("mousedown");
+	});
+	
+	
+	
+	jQuery(".days table").on("mouseup", function(event){
+		var target = jQuery(event.target);
+		if (flag == true) {
+			jQuery(".mouseStatus").text("mouseup");
+    		showCreateEventForm();
+    	} else {
+		flag = false;
+		
+		/*jQuery(target).unbind("mousemove.newevent");*/
+        //alert("new event");
+    	jQuery(".mouseStatus").text("mouseup");
+    	/*jQuery(".days table").unbind("mousemove");*/
+    	}
+	});
+	
+	jQuery("#createEventBtn").click(function() {
+		showCreateEventForm();
+	});
+	
+	function showCreateEventForm() {
+		jQuery("#shadow").show();
+    	jQuery("#createEvent").fadeIn();
+	}
+	
+	
  	
 });  // ready method end 
