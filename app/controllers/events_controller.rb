@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @friends = current_user.followees 
-    @events = Event.all
+    @events = Event.find_all_by_user_id(session[:user_id])
     puts "test info"
     puts session[:user_id]
     #search bar condition to search friends
