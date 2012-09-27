@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.1.1'
 gem 'therubyracer'
 gem 'json'
+gem 'rb-readline'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

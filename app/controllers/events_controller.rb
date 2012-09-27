@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   def getmeetings
     if !session[:user_id].nil?
       @events = Event.find_all_by_user_id(session[:user_id])
-      
+      @events.each{|e| e[:end] = e[:start] + e.length*60}
     end
     respond_to do |format|
       format.json {render json: @events}
@@ -34,15 +34,14 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @friends = current_user.followees 
     @events = Event.find_all_by_user_id(session[:user_id])
     #search bar condition to search friends
-    
+    @event = Event.new
 
     if !params[:userinput].nil? #&& params[:userinput].length != 0
-      searchkey = params[:userinput]
-    @users = User.find(:all, :conditions=> ["fname like ? or lname like ? or fname||' '||lname like ? or email like ?","%"+  searchkey + "%","%"+  searchkey + "%","%"+  searchkey + "%","%"+  searchkey + "%"])
+    @users = User.find(:all, :conditions=> ["fname like ? or lname like ? or fname||' '||lname like ? or email like ?","%"+  params[:userinput] + "%","%"+  params[:userinput] + "%","%"+  params[:userinput] + "%","%"+  params[:userinput] + "%"])
     end
-    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -83,7 +82,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }

@@ -9,7 +9,7 @@
     <th></th>
   </tr>
 
-<% @friends.each do |friend| %>
+<% @friends.each do |friend| %> <!-- Change query to query just users that your are following -->
   <tr>
     <td><%= friend.followee_id %></td>
     <td><%= friend.follower_id %></td>

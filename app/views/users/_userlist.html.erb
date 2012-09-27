@@ -1,6 +1,16 @@
-<%if !@users.nil?%>
-<ul style="display: block;" id="friends-list">
-     <% @users.each do |user| %>
+<%if !users.nil?%>
+     <%if flag%>
+	  <ul style="display: block;" class="friends-list" id="searched">
+     <%else%>
+          <ul style="display: block;" class="friends-list">
+     <%end%>
+     <% users.each do |user| %>
+     
+     <!-- 
+     TODO limit numbers of users so it doesnt fill browser but requires scroll 
+     	down within box 
+     -->
+     	
      <li class="userli" id="<%=user.id%>">
           <div class="profile-pic">
                <%=image_tag "profile-pic.jpg"%>
@@ -9,12 +19,17 @@
                <h3><%=link_to user.fullname %></h3>
                <p><%= user.email %></p>
           </div>
-          <div class="profile-follow"></div>
+          <div class="profile-follow"><%=followlink(user.id)%>
+          <!-- 
+          	TODO how to bind follow method to this div?
+          -->
+          </div>
           <div class="fix"></div><!-- prevent sliding -->
      </li>
      <% end %>
 </ul>
 <%end%>
+
          
      <!--
           followlink(user)

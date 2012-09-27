@@ -6,10 +6,18 @@
             <input type="submit" id="userbtn_submit" value="search"/>
           </form>
     </div><!--search end-->
+    
     <div class="friends">
-    <h2><span class="ui-icon"></span><a href="#" id="friends-btn">Friends</a></h2>
-      <%= render 'users/userlist'%>
-    </div><!-- friends end --> 
+    <h2><span class="ui-icon"></span><a href="#" class="friends-btn">Search Results</a></h2>
+      <%= render :partial=>'users/userlist', :locals=>{:users => @users, :flag => true }%>
+    </div>
+    
+    <div class="friends">
+    <h2><span class="ui-icon"></span><a href="#" class="friends-btn">Friends</a></h2>
+      <%= render :partial=>'users/userlist', :locals=>{:users => @friends, :flag => false}%>
+      <!--render friend only-->
+    </div><!-- friends end -->
+    
     <div class="groups">
-	<h2><span class="ui-icon"></span><a href="#" id="groups-btn">Groups</a></h2>
+	<h2><span class="ui-icon"></span><a href="#" class="groups-btn">Groups</a></h2>
     </div>

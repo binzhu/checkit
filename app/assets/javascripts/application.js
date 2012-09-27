@@ -16,7 +16,8 @@
 
 $(document).ready(function(){
    //alert("application js called") ;
-
+   jQuery(".friends-list").hide();
+   jQuery("#searched").slideToggle();
    $('#userinputid').click(function(){
       if ($(this).focus()){
          //alert('focused');
@@ -25,7 +26,7 @@ $(document).ready(function(){
    });
    
    $('#userbtn_submit').click(function(){
-    alert("searched!");
+    //alert("searched!");
     
     var input = $('#userinputid').val();
       if (input.length == 0){
@@ -34,7 +35,9 @@ $(document).ready(function(){
       setTimeout(function(){ $('#notice').empty();},3000);
       return false;//prevent button to make post request
       };//end if input == 0
-   });// end click of user submit 
+   });// end click of user submit
+   
+   
 });//end document ready
 
       /*

@@ -13,12 +13,13 @@ module ApplicationHelper
     link_to 'merge',{:controller=> 'events', :action => 'merge', :merger_id => merger.id}, :remote => true
   end
   
-  def followlink(followee)
+  def followlink(followee_id)
+    followee = User.find(followee_id)
     if crt_user # check if current user logged in 
       if !crt_user.followees.include?(followee)
-        link_to 'follow', :controller => 'friends', :action => 'follow', :followee_id => followee.id
+        link_to image_tag('follow.jpg'), :controller => 'friends', :action => 'follow', :followee_id => followee.id
       elsif crt_user.followees.include?(followee)
-        link_to followee.username, :controller => 'users', :action=>'show', :id=> followee.id
+        
       else
         link_to 'login'
       end

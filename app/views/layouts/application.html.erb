@@ -4,11 +4,23 @@
   <title>Checkit</title>
   <%= stylesheet_link_tag "custom", :media => "all" %>
   <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,300italic,600italic,400,300,600,700,800|Open+Sans+Condensed:300,300italic,700"%>
-  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"%>
-  <%= javascript_include_tag "modernizr","jquery","jquery-ui", "calendar", "events","friends","application"  %>
+  <%= stylesheet_link_tag "jquery-ui"%>
+  <%= javascript_include_tag "modernizr","jquery","jquery-ui", "checkit","application"  %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%if params[:controller=>"events"]%>
+  	<div id="shadow">
+		<div id="createEvent">
+		<div id="createEventClose"></div>
+		<div class="createEvent-padding">
+		<h2>Create New Event</h2>
+		<!--form goes here-->
+		<%=render 'events/form'%>
+		</div><!--create event padding div end-->
+		</div><!--div create event end-->
+	</div><!--shadow div end-->
+  <%end%>
 <div id="container">
 	<header>
 		<div id="logo">

@@ -11,27 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731161004) do
+ActiveRecord::Schema.define(:version => 20120823200532) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.datetime "start"
-    t.datetime "end"
     t.integer  "allday",     :default => 0
     t.integer  "recurring",  :default => 0
     t.string   "location"
     t.text     "details"
     t.string   "color"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "user_id"
+    t.integer  "length",     :default => 60
   end
 
   create_table "friends", :force => true do |t|
     t.integer  "followee_id"
     t.integer  "follower_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
