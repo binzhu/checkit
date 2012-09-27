@@ -1,3 +1,4 @@
-== Welcome to Checkit
+Welcome to Checkit
+==================
 
 Check it is an online scheduling system. User can see timeslots but not content on other's calendar and schedule appointment with their friend easily.
